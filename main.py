@@ -1,14 +1,21 @@
 from seleniumbase import Driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import time 
 
-LINK= "https://www.daraz.pk/"
+# PRODUCT= input("Which product do you wanna research: ")
+PRODUCT= "Shoes"
 driver= Driver(uc=True)
-driver.get(LINK)
-search_input= driver.find_element(By.CSS_SELECTOR("#q"))
+driver.get( "https://www.daraz.pk")
+time.sleep(3)
+search_input= driver.find_element(By.NAME,"q")
 search_input.click()
-driver.quit()
+search_input.send_keys(PRODUCT, Keys.ENTER)
+time.sleep(2)
 
-# TODO: 2. ask user product name
+
+# TODO: 2. ask user product nam
 # TODO: 3. search the product on daraz.com
 # TODO: 4. fetch the products titles, hrefs and prices
+time.sleep(300)
+driver.quit()
